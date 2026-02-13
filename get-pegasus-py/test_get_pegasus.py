@@ -53,7 +53,7 @@ class TestMainExecution(unittest.TestCase):
         # Check that the target directory was created
         self.assertTrue(self.test_path.exists())
         
-        cmd = f". {self.test_path}/env.sh && condor_master && sleep 10s && condor_status && condor_off", 
+        cmd = f". {self.test_path}/env.sh && condor_master && sleep 10s && condor_status && condor_off"
         out, err, rc = shell_command(cmd)
         print("STDOUT:", out)
         print("STDERR:", err)

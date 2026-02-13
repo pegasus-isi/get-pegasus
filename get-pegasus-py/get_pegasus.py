@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import getpass
 import logging
 import os
 import platform
@@ -131,7 +132,7 @@ DAEMON_LIST = MASTER, COLLECTOR, SCHEDD, NEGOTIATOR, STARTD
 CONDOR_HOST = localhost
 
 USE_SHARED_PORT = False
-COLLECTOR_PORT = {10000 + os.urandom(2)[0] % 40000}
+COLLECTOR_PORT = {10000 + int.from_bytes(os.urandom(2), 'big') % 40000}
 COLLECTOR_USES_SHARED_PORT = False
 
 # idtokens - good base for pilots
@@ -147,7 +148,7 @@ SEC_CLIENT_AUTHENTICATION_METHODS = $(SEC_DEFAULT_AUTHENTICATION_METHODS)
 # With strong security, do not use IP based controls
 ALLOW_WRITE = *
 ALLOW_READ = *
-ALLOW_ADMINISTRATOR = {os.getlogin()}@{socket.getfqdn()}
+ALLOW_ADMINISTRATOR = {getpass.getuser()}@{socket.getfqdn()}
 
 # dynamic slots
 SLOT_TYPE_1 = cpus=100%,disk=100%,swap=100%
@@ -184,7 +185,7 @@ NUM_SLOTS_TYPE_1 = 1
     pool_password_path.chmod(0o600)
 
     personal_token_path = target_dir / "condor/etc/tokens.d/personal.token"
-    user_at_host = f"{os.getlogin()}@{socket.getfqdn()}"
+    user_at_host = f"{getpass.getuser()}@{socket.getfqdn()}"
     
     # Need to make sure condor bins are on the path and CONDOR_CONFIG is set
     os.environ["PATH"] = str(target_dir / "condor/bin") + ":" + os.environ["PATH"]
