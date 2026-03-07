@@ -41,7 +41,7 @@ class TestMainExecution(unittest.TestCase):
     ):
     
         # Run the script as subprocess
-        cmd =  str(Path(__file__).parent / 'get_pegasus.py') + \
+        cmd =  str(Path(__file__).parent.parent / 'get_pegasus') + \
                ' --target ' + str(self.test_path)
         out, err, rc = shell_command(cmd)
         print("STDOUT:", out)

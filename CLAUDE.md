@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project contains a Python script (`get-pegasus-py/get_pegasus.py`) that automates the installation of Pegasus Workflow Management System (WMS) and its primary dependency, HTCondor. The script is designed to be run on Linux and macOS systems.
+This project contains a Python script (`get_pegasus`) that automates the installation of Pegasus Workflow Management System (WMS) and its primary dependency, HTCondor. The script is designed to be run on Linux and macOS systems.
 
 The script performs the following actions:
 
@@ -23,14 +23,14 @@ This project is a standalone Python script and does not require a separate build
 To run the Pegasus installer, execute the following command from the project root directory:
 
 ```bash
-python3 get-pegasus-py/get_pegasus.py [--target <installation-directory>]
+curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | bash -s -- --target-dir pegasus
 ```
 
 *   By default, the software will be installed in a `pegasus-{version}` directory in the current working directory.
 *   You can specify a different installation path using the optional `--target` argument. For example:
 
 ```bash
-python3 get-pegasus-py/get_pegasus.py --target ./my-pegasus-install
+./get_pegasus --target ./my-pegasus-install
 ```
 
 ### Post-Installation
@@ -67,5 +67,5 @@ condor_q
 To run the tests, execute the following command from the project's root directory:
 
 ```bash
-python3 -m unittest get-pegasus-py/test_get_pegasus.py
+python3 -m unittest test/test_get_pegasus.py
 ```

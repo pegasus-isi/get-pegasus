@@ -4,13 +4,13 @@ This script installs Pegasus WMS and its dependencies (HTCondor) in a specified 
 
 ## Usage
 
-To install Pegasus, run the script from within this directory:
+To install Pegasus, run:
 
 ```bash
-./get_pegasus.py [--target <installation-directory>]
+curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | bash -s -- --target-dir pegasus
 ```
 
-By default, Pegasus will be installed in `./pegasus-{version}`. You can specify a different location using the `--target` option.
+By default, Pegasus will be installed in `./pegasus-{version}`. You can specify a different location using the `--target-dir` option.
 
 After the installation is complete, you will need to source the environment file to configure your shell:
 
