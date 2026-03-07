@@ -23,7 +23,7 @@ This project is a standalone Python script and does not require a separate build
 To run the Pegasus installer, execute the following command from the project root directory:
 
 ```bash
-curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | bash -s -- --target-dir pegasus
+curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | python3 -- --target-dir pegasus
 ```
 
 *   By default, the software will be installed in a `pegasus-{version}` directory in the current working directory.
