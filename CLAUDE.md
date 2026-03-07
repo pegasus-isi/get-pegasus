@@ -67,5 +67,5 @@ condor_q
 To run the tests, execute the following command from the project's root directory:
 
 ```bash
-python3 -m unittest test/test_get_pegasus.py
+python3 -m unittest tests/test_get_pegasus.py
 ```

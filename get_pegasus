@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.request import urlretrieve
 
 
-pegasus_version = "5.1.2-dev.0"
+pegasus_version = "5.1.3-dev.0"
 htcondor_version = "25.x"
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -130,6 +130,7 @@ PROCD_ADDRESS = $(RUN)/procd_pipe
 DAEMON_LIST = MASTER, COLLECTOR, SCHEDD, NEGOTIATOR, STARTD
 
 CONDOR_HOST = localhost
+NETWORK_INTERFACE = 127.0.0.1
 
 USE_SHARED_PORT = False
 COLLECTOR_PORT = {10000 + int.from_bytes(os.urandom(2), 'big') % 40000}
