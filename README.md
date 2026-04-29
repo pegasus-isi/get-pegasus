@@ -10,10 +10,10 @@ To install Pegasus, run:
 curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | python3
 ```
 
-By default, Pegasus will be installed in `./pegasus-{version}`. You can specify a different location using the `--target-dir` option.
+By default, Pegasus will be installed in `./pegasus-{version}`. You can specify a different location using the `--target` option.
 
 ```bash
-curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | python3 -- --target-dir pegasus
+curl -s https://raw.githubusercontent.com/pegasus-isi/get-pegasus/refs/heads/main/get_pegasus | python3 - --target pegasus
 ```
 
 After the installation is complete, you will need to source the environment file to configure your shell:
@@ -36,4 +36,3 @@ condor_q
 ```
 
 If HTCondor needs to be started at a later time, you can run `condor_master` again.
-
