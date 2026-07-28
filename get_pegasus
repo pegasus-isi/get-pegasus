@@ -55,6 +55,8 @@ def install_htcondor(target_dir: Path, arch: str, os_name: str, os_version: str)
 
     if os_name == "debian":
         c_os_name = "Debian"
+    elif os_name == "ubuntu":
+        c_os_name = "Ubuntu"
     elif os_name == "rhel":
         c_os_name = "AlmaLinux"
     elif os_name == "suse":
